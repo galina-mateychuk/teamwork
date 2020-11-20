@@ -3,32 +3,34 @@ include ./mixins/*.pug
 include ./../mixins/*.pug
 
 block variables
-    - var title = 'Кнопки';
+    - var title = 'Аватарка большая';
     - var pageClass = 'body--dashboard';
 
 block content
 
     //- Заголовок компонента
     h1.ui-kit__component-title.
-        Тестовая кнопка
+        Аватарка большая
 
     //- Демонстрация компонента
     .ui-kit__component-demo
-        +test-button('#!', 'Текст кнопки')
+        +avatar-big('./../img/avatars/avatar-test.jpg') 
 
     //- Код для вызова компонента
     .ui-kit__component-code
         pre.
-            +test-button('#!', 'Текст кнопки')
+            +avatar-big('./../img/avatars/avatar-test.jpg') 
 
     //- Файл в котором описан компонент
     .ui-kit__element-title.
         Название файла:
-        mixins/test-button.pug
+        mixins/avatar-big.pug
 
     //- Распечатка кода компонента
     .ui-kit__element-code
         pre.
-            mixin test-button(link, text="Play")
-                a(class="test-button" href= link)&attributes(attributes) #{text}
+            mixin avatar-big(filePath='./../img/avatars/avatar-big.jpg') 
+                .avatar-big
+                    img(src= filePath alt="Аватарка")
+
 
